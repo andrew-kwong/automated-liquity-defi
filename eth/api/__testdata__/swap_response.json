@@ -1,0 +1,47 @@
+{
+    "fromToken": {
+        "symbol": "MC",
+        "name": "Merit Circle",
+        "decimals": 18,
+        "address": "0x949d48eca67b17269629c7194f4b727d4ef9e5d6",
+        "logoURI": "https://tokens.1inch.io/0x949d48eca67b17269629c7194f4b727d4ef9e5d6.png",
+        "eip2612": true
+    },
+    "toToken": {
+        "symbol": "WBTC",
+        "name": "Wrapped BTC",
+        "address": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+        "decimals": 8,
+        "logoURI": "https://tokens.1inch.io/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599.png"
+    },
+    "toTokenAmount": "15397",
+    "fromTokenAmount": "3000000000000000000",
+    "protocols": [
+        [
+            [
+                {
+                    "name": "UNISWAP_V2",
+                    "part": 100,
+                    "fromTokenAddress": "0x949d48eca67b17269629c7194f4b727d4ef9e5d6",
+                    "toTokenAddress": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+                }
+            ],
+            [
+                {
+                    "name": "DEFISWAP",
+                    "part": 100,
+                    "fromTokenAddress": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+                    "toTokenAddress": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
+                }
+            ]
+        ]
+    ],
+    "tx": {
+        "from": "0x8b187EA19C93091a4D6B426b71871648182b5Fac",
+        "to": "0x1111111254fb6c44bac0bed2854e76f90643097d",
+        "data": "0x2e95b6c8000000000000000000000000949d48eca67b17269629c7194f4b727d4ef9e5d600000000000000000000000000000000000000000000000029a2241af62c000000000000000000000000000000000000000000000000000000000000000036210000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000000200000000000000003b6d0340ccb63225a7b19dcf66717e4d40c9a72b39331d6180000000000000003b6d0340f02553b9f908ab61f4c1fc0af9a488c76f8ecc85cfee7c08",
+        "value": "0",
+        "gas": 194015,
+        "gasPrice": "55162331693"
+    }
+}

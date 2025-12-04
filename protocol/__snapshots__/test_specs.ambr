@@ -1,0 +1,103 @@
+# name: test_json[eth.balance.1]
+  <class 'dict'> {
+    'chain': <class 'dict'> {
+      'id': 1,
+      'is_testnet': False,
+      'name': 'Ethereum',
+      'slug': 'eth',
+    },
+    'description': 'Get balance of the given token contract or ETH.',
+    'name': 'Get token balance',
+    'pipeline': <class 'dict'> {
+      'description': None,
+      'entry_condition': None,
+      'given': <class 'list'> [
+      ],
+      'hide_details': False,
+      'slug': 'pipeline',
+      'steps': <class 'list'> [
+        <class 'dict'> {
+          'slug': 'balance',
+          'token': <class 'dict'> {
+            'default': 'ETH',
+            'key': 'token',
+            'name': 'Token',
+            'required': True,
+            'type': 'str',
+          },
+        },
+      ],
+    },
+    'reverses': <class 'list'> [
+    ],
+    'slug': 'balance',
+    'version': 1,
+  }
+---
+# name: test_json[eth.transfer.1]
+  <class 'dict'> {
+    'chain': <class 'dict'> {
+      'id': 1,
+      'is_testnet': False,
+      'name': 'Ethereum',
+      'slug': 'eth',
+    },
+    'description': 'Transfers a token to a different address.',
+    'name': 'Transfer',
+    'pipeline': <class 'dict'> {
+      'description': None,
+      'entry_condition': None,
+      'given': <class 'list'> [
+      ],
+      'hide_details': False,
+      'slug': 'pipeline',
+      'steps': <class 'list'> [
+        <class 'dict'> {
+          'estimated_gas_surplus': <class 'dict'> {
+            'default': 100000,
+            'key': 'estimated_gas_surplus',
+            'name': 'Estimated gas surplus',
+            'required': True,
+            'type': 'int',
+          },
+          'max_priority_fee': <class 'dict'> {
+            'default': '3',
+            'key': 'max_priority_fee',
+            'name': 'Max priority fee',
+            'required': True,
+            'type': 'GWEI',
+          },
+          'slug': 'setup',
+        },
+        <class 'dict'> {
+          'amount': <class 'dict'> {
+            'default': None,
+            'key': 'amount',
+            'name': 'Amount',
+            'required': True,
+            'type': 'ERC20Asset',
+          },
+          'slug': 'transfer',
+          'to': <class 'dict'> {
+            'default': '0x',
+            'key': 'address',
+            'name': 'Address',
+            'required': True,
+            'type': 'str',
+          },
+          'token': <class 'dict'> {
+            'default': 'ETH',
+            'key': 'token',
+            'name': 'Token',
+            'required': True,
+            'type': 'str',
+          },
+        },
+      ],
+    },
+    'reverses': <class 'list'> [
+    ],
+    'slug': 'transfer',
+    'version': 1,
+  }
+---

@@ -1,0 +1,244 @@
+# name: test_params[eth-rinkeby.compound-reverse.2]
+  <class 'dict'> {
+    'pipeline': <class 'dict'> {
+      'ETH_sufficient': <class 'dict'> {
+        'min_eth': '0.1',
+      },
+      'allow_USDC': <class 'dict'> {
+        'amount': '1',
+      },
+      'comp_harvesting': <class 'dict'> {
+        'accrued_COMP_above_threshold': <class 'dict'> {
+          'threshold': '0',
+        },
+      },
+      'redeem': <class 'dict'> {
+        'all_cUSDC_redeemable_and_above_threshold': <class 'dict'> {
+          'threshold': '0',
+        },
+      },
+      'setup': <class 'dict'> {
+        'estimated_gas_surplus': 100000,
+        'max_priority_fee': '3',
+      },
+      'swap_comp': <class 'dict'> {
+        'COMP_balance_above_threshold': <class 'dict'> {
+          'threshold': '0',
+        },
+        'allow_COMP_1inch': <class 'dict'> {
+          'amount': '1',
+        },
+        'borrow_limit_fraction_after_swap': <class 'dict'> {
+          'borrow_limit_fraction': '0.8',
+        },
+        'one_inch_swap_1': <class 'dict'> {
+          'expected_conversion_rate': '1',
+          'slippage_tolerance': '0.015',
+        },
+      },
+      'swap_repay_loop': <class 'dict'> {
+        'max': 50,
+        'repay': <class 'dict'> {
+          'max_possible_repay_above_threshold': <class 'dict'> {
+            'threshold': '0',
+          },
+        },
+        'swap': <class 'dict'> {
+          'group': <class 'dict'> {
+            'allow_cUSDC_1inch': <class 'dict'> {
+              'amount': '1',
+            },
+            'borrow_limit': <class 'dict'> {
+              'borrow_limit_fraction': '0.8',
+            },
+            'cUSDC_swappable_above_threshold': <class 'dict'> {
+              'threshold': '10',
+            },
+            'one_inch_source_quote': <class 'dict'> {
+              'slippage_tolerance': '0.015',
+            },
+            'one_inch_swap': <class 'dict'> {
+              'expected_conversion_rate': '1',
+              'slippage_tolerance': '0.015',
+            },
+            'redeemable': <class 'dict'> {
+              'borrow_limit_fraction': '0.9',
+            },
+            'swappable': <class 'dict'> {
+              'surplus_if_available': '0.1',
+            },
+          },
+        },
+      },
+    },
+  }
+---
+# name: test_params[eth-rinkeby.compound.2]
+  <class 'dict'> {
+    'pipeline': <class 'dict'> {
+      'ETH_sufficient': <class 'dict'> {
+        'min_eth': '0.1',
+      },
+      'allow_USDC': <class 'dict'> {
+        'amount': '1',
+      },
+      'main_loop': <class 'dict'> {
+        'borrow': <class 'dict'> {
+          'borrow_limit_exhausted': <class 'dict'> {
+            'borrow_limit_fraction': '0.8',
+          },
+          'borrowable_DAI_above_threshold': <class 'dict'> {
+            'threshold': '0',
+          },
+        },
+        'comp_harvesting': <class 'dict'> {
+          'accrued_COMP_above_threshold': <class 'dict'> {
+            'threshold': '0',
+          },
+        },
+        'max': 50,
+        'swap_borrowed': <class 'dict'> {
+          'allow_DAI_1inch': <class 'dict'> {
+            'amount': '1',
+          },
+          'borrow_limit': <class 'dict'> {
+            'borrow_limit_fraction': '0.8',
+          },
+          'one_inch_swap': <class 'dict'> {
+            'expected_conversion_rate': '1',
+            'slippage_tolerance': '0.015',
+          },
+          'swappable_DAI_above_threshold': <class 'dict'> {
+            'threshold': '0',
+          },
+        },
+        'swap_comp': <class 'dict'> {
+          'COMP_balance_above_threshold': <class 'dict'> {
+            'threshold': '0',
+          },
+          'allow_COMP_1inch': <class 'dict'> {
+            'amount': '1',
+          },
+          'borrow_limit_fraction_after_swap': <class 'dict'> {
+            'borrow_limit_fraction': '0.8',
+          },
+          'one_inch_swap_1': <class 'dict'> {
+            'expected_conversion_rate': '1',
+            'slippage_tolerance': '0.015',
+          },
+        },
+      },
+      'setup': <class 'dict'> {
+        'estimated_gas_surplus': 100000,
+        'max_priority_fee': '3',
+      },
+      'supply': <class 'dict'> {
+        'target_amount_supplied': '5',
+      },
+    },
+  }
+---
+# name: test_params[eth-rinkeby.liquity-exit.1]
+  <class 'dict'> {
+    'liquity_exit_pipeline': <class 'dict'> {
+      'liquity_exit_swap_and_check_pipeline_': <class 'dict'> {
+        'prepare_swap_eth_to_weth': <class 'dict'> {
+          'store_min_gas_balance': <class 'dict'> {
+            'min_gas_balance': '0.5',
+          },
+        },
+        'swap_lqty_to_lusd': <class 'dict'> {
+          'LQTY_balance_above_swap_threshold': <class 'dict'> {
+            'swap_LQTY_threshold': '1',
+          },
+          'allow_LQTY_1inch': <class 'dict'> {
+            'amount': '1',
+          },
+        },
+        'swap_weth_to_lusd': <class 'dict'> {
+          'WETH_balance': <class 'dict'> {
+            'weth_threshold': '0.001',
+          },
+          'allow_WETH_1inch': <class 'dict'> {
+            'amount': '1',
+          },
+        },
+      },
+      'setup': <class 'dict'> {
+        'estimated_gas_surplus': 100000,
+        'max_priority_fee': '3',
+      },
+    },
+  }
+---
+# name: test_params[eth-rinkeby.liquity.1]
+  <class 'dict'> {
+    'liquity_strategy_pipeline': <class 'dict'> {
+      'liquity_deposit_pipeline': <class 'dict'> {
+        'LUSD_min_deposit': <class 'dict'> {
+          'min_lusd_deposit': '0.1',
+        },
+      },
+      'main_loop': <class 'dict'> {
+        'harvesting': <class 'dict'> {
+          'lqty_eth_harvesting': <class 'dict'> {
+            'estimate_harvest_cost': <class 'dict'> {
+              'factor': '1',
+              'gas_speed': 'average',
+            },
+          },
+        },
+        'max': 50,
+        'prepare_swap_eth_to_weth': <class 'dict'> {
+          'store_min_gas_balance': <class 'dict'> {
+            'min_gas_balance': '0.5',
+          },
+        },
+        'swap_lqty_to_lusd': <class 'dict'> {
+          'LQTY_balance_above_swap_threshold': <class 'dict'> {
+            'swap_LQTY_threshold': '1',
+          },
+          'allow_LQTY_1inch': <class 'dict'> {
+            'amount': '1',
+          },
+        },
+        'swap_weth_to_lusd': <class 'dict'> {
+          'WETH_balance': <class 'dict'> {
+            'weth_threshold': '0.001',
+          },
+          'allow_WETH_1inch': <class 'dict'> {
+            'amount': '1',
+          },
+        },
+      },
+      'setup': <class 'dict'> {
+        'estimated_gas_surplus': 100000,
+        'max_priority_fee': '3',
+      },
+    },
+  }
+---
+# name: test_params[eth.balance.1]
+  <class 'dict'> {
+    'pipeline': <class 'dict'> {
+      'balance': <class 'dict'> {
+        'token': 'ETH',
+      },
+    },
+  }
+---
+# name: test_params[eth.transfer.1]
+  <class 'dict'> {
+    'pipeline': <class 'dict'> {
+      'setup': <class 'dict'> {
+        'estimated_gas_surplus': 100000,
+        'max_priority_fee': '3',
+      },
+      'transfer': <class 'dict'> {
+        'address': '0x',
+        'amount': '0',
+        'token': 'ETH',
+      },
+    },
+  }
+---

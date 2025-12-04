@@ -1,0 +1,137 @@
+# name: TestPrintPipeline.test_print_pipeline[eth-rinkeby.compound-reverse.2]
+  <class 'list'> [
+    "Setup(slug='setup', estimated_gas_surplus=100000, max_priority_fee=GWEI('3'))",
+    "Balance(slug='balance', token='ETH')",
+    "Expr(slug='ETH_sufficient', args=[ETH('0.1')])",
+    "SetAllowance(slug='allow_USDC', token='USDC', amount=Token('0'), set_unlimited=True)",
+    "GiveCollateral(slug='give_collateral', c_token='cUSDC')",
+    "BorrowBalance(slug='DAI_borrow_balance_for_swap', token='DAI')",
+    "Balance(slug='DAI_balance_for_swap', token='DAI')",
+    "Transform(slug='DAI_insufficient_repay', args=[])",
+    "Expr(slug='has_insufficient_DAI_for_repay', args=[])",
+    "OneInchSourceQuote(slug='one_inch_source_quote', source_token='cUSDC', target_token='DAI', target_amount=None, slippage_tolerance=Decimal('0.015'))",
+    "Redeemable(slug='redeemable', c_token='cUSDC', borrow_limit_fraction=Decimal('0.9'))",
+    "Transform(slug='swappable', args=[cUSDC('0.1')])",
+    "Expr(slug='cUSDC_swappable_above_threshold', args=[cUSDC('10')])",
+    "OneInchTargetQuote(slug='one_inch_target_quote', source_token='cUSDC', target_token='DAI', source_amount=None)",
+    "ForecastBorrowLimitFractionAfterSwapWithinLimit(slug='forecast_borrow_limit_fraction_after_swap_within_limit', source_token='cUSDC', target_token='DAI', amount=None, target_amount=None, borrow_limit_fraction=Decimal('0.99'))",
+    "SetOneInchAllowance(slug='allow_cUSDC_1inch', token='cUSDC', amount=Token('1'))",
+    "OneInchSwap(slug='one_inch_swap', source_token='cUSDC', target_token='DAI', amount=None, expected_conversion_rate=Decimal('1'), slippage_tolerance=Decimal('0.015'))",
+    "BorrowLimitFraction(slug='borrow_limit_fraction')",
+    "BorrowLimit(slug='borrow_limit', token='DAI', borrow_limit_fraction=Decimal('0.8'))",
+    "BorrowBalance(slug='DAI_borrow_balance_for_repay', token='DAI')",
+    "Balance(slug='DAI_borrow_for_repay', token='DAI')",
+    "Transform(slug='max_possible_repay', args=[])",
+    "Expr(slug='max_possible_repay_above_threshold', args=[DAI('0')])",
+    "Transform(slug='remaining_repay', args=[])",
+    "Repay(slug='repay_1', token='DAI', amount=None, remaining=None)",
+    "Balance(slug='balance_1', token='cUSDC')",
+    "Redeemable(slug='redeemable_1', c_token='cUSDC', borrow_limit_fraction=Decimal('0.9'))",
+    "Expr(slug='all_cUSDC_redeemable_and_above_threshold', args=[cUSDC('0')])",
+    "Redeem(slug='redeem_1', c_token='cUSDC', amount=None)",
+    "CompAccrued(slug='comp_accrued')",
+    "Expr(slug='accrued_COMP_above_threshold', args=[COMP('0')])",
+    "HarvestComp(slug='harvest_comp')",
+    "Balance(slug='balance_2', token='COMP')",
+    "Expr(slug='COMP_balance_above_threshold', args=[COMP('0')])",
+    "SetOneInchAllowance(slug='allow_COMP_1inch', token='COMP', amount=Token('0'))",
+    "OneInchSwap(slug='one_inch_swap_1', source_token='COMP', target_token='cUSDC', amount=None, expected_conversion_rate=Decimal('1'), slippage_tolerance=Decimal('0.015'))",
+    "BorrowLimitFraction(slug='borrow_limit_fraction_1')",
+    "BorrowLimit(slug='borrow_limit_fraction_after_swap', token='DAI', borrow_limit_fraction=Decimal('0.8'))",
+  ]
+---
+# name: TestPrintPipeline.test_print_pipeline[eth-rinkeby.compound.2]
+  <class 'list'> [
+    "Setup(slug='setup', estimated_gas_surplus=100000, max_priority_fee=GWEI('3'))",
+    "Balance(slug='balance', token='ETH')",
+    "Expr(slug='ETH_sufficient', args=[ETH('0.1')])",
+    "SetAllowance(slug='allow_USDC', token='USDC', amount=Token('0'), set_unlimited=True)",
+    "GiveCollateral(slug='give_collateral', c_token='cUSDC')",
+    "Supply(slug='supply', token='USDC', target_amount_supplied=USDC('5'))",
+    "BorrowLimitFraction(slug='borrow_limit_fraction')",
+    "BorrowLimit(slug='borrow_limit_exhausted', token='DAI', borrow_limit_fraction=Decimal('0.8'))",
+    "Expr(slug='borrowable_DAI_above_threshold', args=[DAI('0')])",
+    "Borrow(slug='borrow_1', token='DAI', amount=None)",
+    "Balance(slug='balance_1', token='DAI')",
+    "Expr(slug='swappable_DAI_above_threshold', args=[DAI('0')])",
+    "SetContractAllowance(slug='allow_DAI_1inch', token='DAI', spender_contract='0x1111111254fb6c44bac0bed2854e76f90643097d', amount=Token('0'), set_unlimited=True)",
+    "OneInchSwap(slug='one_inch_swap', source_token='DAI', target_token='cUSDC', amount=None, expected_conversion_rate=Decimal('1'), slippage_tolerance=Decimal('0.015'))",
+    "BorrowLimitFraction(slug='borrow_limit_fraction_1')",
+    "BorrowLimit(slug='borrow_limit', token='DAI', borrow_limit_fraction=Decimal('0.8'))",
+    "CompAccrued(slug='comp_accrued')",
+    "Expr(slug='accrued_COMP_above_threshold', args=[COMP('0')])",
+    "HarvestComp(slug='harvest_comp')",
+    "Balance(slug='balance_2', token='COMP')",
+    "Expr(slug='COMP_balance_above_threshold', args=[COMP('0')])",
+    "SetOneInchAllowance(slug='allow_COMP_1inch', token='COMP', amount=Token('0'))",
+    "OneInchSwap(slug='one_inch_swap_1', source_token='COMP', target_token='cUSDC', amount=None, expected_conversion_rate=Decimal('1'), slippage_tolerance=Decimal('0.015'))",
+    "BorrowLimitFraction(slug='borrow_limit_fraction_2')",
+    "BorrowLimit(slug='borrow_limit_fraction_after_swap', token='DAI', borrow_limit_fraction=Decimal('0.8'))",
+  ]
+---
+# name: TestPrintPipeline.test_print_pipeline[eth-rinkeby.liquity-exit.1]
+  <class 'list'> [
+    "Setup(slug='setup', estimated_gas_surplus=100000, max_priority_fee=GWEI('3'))",
+    "StabilityPoolCheck(slug='stability_pool_check')",
+    "Expr(slug='check_LUSD_balance_pool', args=[])",
+    "WithdrawLUSD(slug='withdraw_lusd', amount=None)",
+    "Balance(slug='balance', token='ETH')",
+    "StoreMinGasBalance(slug='store_min_gas_balance', min_gas_balance=ETH('0.5'))",
+    "Expr(slug='ETH_balance', args=[])",
+    "CalculateDifference(slug='calculate_difference')",
+    "ConvertETHToWETH(slug='convert_eth_to_weth', amount=None): {'_condition_': True, 'check_LUSD_balance_pool': False, 'ETH_balance': False}",
+    "Balance(slug='balance_1', token='WETH')",
+    "Expr(slug='WETH_balance', args=[WETH('0.001')])",
+    "SetOneInchAllowance(slug='allow_WETH_1inch', token='WETH', amount=Token('1'))",
+    "OneInchSwap(slug='one_inch_swap', source_token='WETH', target_token='LUSD', amount=False, expected_conversion_rate=Decimal('0.0003564'), slippage_tolerance=Decimal('0.01'))",
+    "Balance(slug='balance_2', token='LQTY')",
+    "Expr(slug='LQTY_balance_above_swap_threshold', args=[LQTY('1')])",
+    "SetOneInchAllowance(slug='allow_LQTY_1inch', token='LQTY', amount=Token('1'))",
+    "OneInchSwap(slug='one_inch_swap_1', source_token='LQTY', target_token='LUSD', amount=None, expected_conversion_rate=Decimal('0.6388'), slippage_tolerance=Decimal('0.01'))",
+    "LiquityExitCheck(slug='liquity_exit_check')",
+  ]
+---
+# name: TestPrintPipeline.test_print_pipeline[eth-rinkeby.liquity.1]
+  <class 'list'> [
+    "Setup(slug='setup', estimated_gas_surplus=100000, max_priority_fee=GWEI('3'))",
+    "Balance(slug='balance', token='LUSD')",
+    "Expr(slug='LUSD_min_deposit', args=[LUSD('0.1')])",
+    "DepositLUSD(slug='deposit_lusd', amount=None)",
+    "StabilityPoolCheck(slug='stability_pool_check')",
+    "StabilityPoolCheck(slug='stability_pool_check_1')",
+    "Expr(slug='check_LUSD_balance_pool', args=[])",
+    "LQTYAccrued(slug='lqty_accrued')",
+    "EstimateHarvestCost(slug='estimate_harvest_cost', gas_speed='average', factor=Decimal('1'))",
+    "Expr(slug='accrued_LQTY_above_threshold', args=[])",
+    "HarvestLQTY(slug='harvest_lqty')",
+    "Balance(slug='balance_1', token='LQTY')",
+    "Expr(slug='LQTY_balance_above_swap_threshold', args=[LQTY('1')])",
+    "SetOneInchAllowance(slug='allow_LQTY_1inch', token='LQTY', amount=Token('1'))",
+    "OneInchSwap(slug='one_inch_swap', source_token='LQTY', target_token='LUSD', amount=None, expected_conversion_rate=Decimal('0.6388'), slippage_tolerance=Decimal('0.01'))",
+    "Balance(slug='balance_2', token='ETH')",
+    "StoreMinGasBalance(slug='store_min_gas_balance', min_gas_balance=ETH('0.5'))",
+    "Expr(slug='ETH_balance', args=[])",
+    "CalculateDifference(slug='calculate_difference')",
+    "ConvertETHToWETH(slug='convert_eth_to_weth', amount=None): {'_condition_': True, 'LUSD_min_deposit': False, 'check_LUSD_balance_pool': False, 'accrued_LQTY_above_threshold': False, 'LQTY_balance_above_swap_threshold': False, 'ETH_balance': False}",
+    "Balance(slug='balance_3', token='WETH')",
+    "Expr(slug='WETH_balance', args=[WETH('0.001')])",
+    "SetOneInchAllowance(slug='allow_WETH_1inch', token='WETH', amount=Token('1'))",
+    "OneInchSwap(slug='one_inch_swap_1', source_token='WETH', target_token='LUSD', amount=False, expected_conversion_rate=Decimal('0.0003564'), slippage_tolerance=Decimal('0.01'))",
+  ]
+---
+# name: TestPrintPipeline.test_print_pipeline[eth.balance.1]
+  <class 'list'> [
+    "Balance(slug='balance', token='ETH')",
+  ]
+---
+# name: TestPrintPipeline.test_print_pipeline[eth.liquity-apr.1]
+  <class 'list'> [
+    "CalculateLiquityAPR(slug='calculate_liquity_apr')",
+  ]
+---
+# name: TestPrintPipeline.test_print_pipeline[eth.transfer.1]
+  <class 'list'> [
+    "Setup(slug='setup', estimated_gas_surplus=100000, max_priority_fee=GWEI('3'))",
+    "Transfer(slug='transfer', token='USDC', to='0x7474Ee487b0b26b7507fca44634FafBB8be219F9', amount=ERC20Asset('1'))",
+  ]
+---
